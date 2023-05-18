@@ -21,7 +21,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/proveedores" class="nav-link <?php echo isset($seccion) && $seccion === '/proveedores' ? 'active' : ''; ?>">
+                <a href="/proveedores" class="nav-link <?php echo isset($seccion) && $seccion === 'listado' ? 'active' : ''; ?>">
                   <i class="fas fa-headset nav-icon"></i>
                   <p>Proveedores</p>
                 </a>

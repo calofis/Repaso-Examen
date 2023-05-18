@@ -23,8 +23,8 @@ class FrontController{
                 
         Route::add('/proveedores', 
                 function(){
-                    $controlador = new \Com\Daw2\Controllers\InicioController();
-                    $controlador->demo();
+                    $controlador = new \Com\Daw2\Controllers\listadoController();
+                    $controlador->datos();
                 }
                 , 'get');
                 
