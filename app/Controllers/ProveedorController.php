@@ -2,7 +2,7 @@
 
 namespace Com\Daw2\Controllers;
 
-class listadoController extends \Com\Daw2\Core\BaseController {
+class ProveedorController extends \Com\Daw2\Core\BaseController {
     
     public function datos(){
          $data = array(
@@ -15,7 +15,7 @@ class listadoController extends \Com\Daw2\Core\BaseController {
         
         $modelProveedor = new \Com\Daw2\Models\ProveedoresModel();
         
-        if(isset($_GET['order']) && filter_var($_GET['order'], FILTER_VALIDATE_INT)){
+        if(isset($_GET['order']) && filter_var($_GET['order'], FILTER_VALIDATE_INT && $_GET['order'] <= 5 && $_GET['order'] >= 1)){
             $order = $_GET['order'];
         }else{
             $order = 1;

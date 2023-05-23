@@ -96,7 +96,7 @@
                 <table id="tabladatos" class="table">                    
                     <thead>
                         <tr>
-                            <th><a href="/proveedores?order=1<?php echo $url ?>">Alias</a><i class="fas fa-sort-amount-down-alt"></i></th>
+                            <th><a href="/proveedores?order=1<?php echo $url ?>">Alias</a></th>
                             <th><a href="/proveedores?order=2<?php echo $url ?>">Nombre Completo</a> </th>
                             <th><a href="/proveedores?order=3<?php echo $url ?>">Tipo</a> </th>
                             <th><a href="/proveedores?order=4<?php echo $url ?>">Continente</a> </th>
@@ -106,12 +106,19 @@
                     </thead>
                     <tbody>
                         <?php foreach ($data as $proveedor) { ?>
-                            <tr id="alias-<?php echo $proveedor['alias']; ?>" <?php echo  $proveedor['continente_avisar'] == 1 ? 'class="alert alert-warning"': '';?>>
+                            <tr id="alias-<?php echo $proveedor['alias']; ?>" <?php echo  $proveedor['continente_avisar'] == 1 ? 'class="table-warning"': '';?>>
                                 <td><?php echo $proveedor['alias']; ?></td>
                                 <td><?php echo $proveedor['nombre_completo'] ?></td>
                                 <td><?php echo $proveedor['nombre_tipo_proveedor']; ?></td>
                                 <td><?php echo $proveedor['nombre_continente']; ?></td> 
-                                <td><?php echo $proveedor['anho_fundacion']; ?></td>    
+                                <td><?php echo $proveedor['anho_fundacion']; ?></td>
+                                <td>
+                                    <a href="tel: <?php echo $proveedor['telefono']?>" target="_blank" class="btn btn-success ml-1" data-toggle="tooltip" data-placement="top" title="<?php echo $proveedor['telefono']?>"><i class="fas fa-phone"></i></a>
+                                    <a href="mailto: <?php echo $proveedor['email']?>" target="_blank" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="<?php echo $proveedor['email']?>"><i class="fas fa-envelope"></i></a>
+                                    <?php if($proveedor['website'] !== null){?>
+                                        <a href="<?php echo $proveedor['website']?>" target="_blank" class="btn btn-light ml-1" data-toggle="tooltip" data-placement="top" title="<?php echo $proveedor['website']?>"><i class="fas fa-globe-europe"></i></a>
+                                    <?php }?>
+                                </td>
                             </tr>    
                         <?php } ?>
                     </tbody>                    

@@ -6,9 +6,9 @@ use \PDO;
 
 class ProveedoresModel extends \Com\Daw2\Core\BaseModel{
     
-    private const ORDER = [ 'alias', 'nombre_completo', 'nombre_tipo_proveedor', 'nombre_continente', 'anho_fundación'];
+    private const ORDER = [ 'alias', 'nombre_completo', 'nombre_tipo_proveedor', 'nombre_continente', 'anho_fundacion'];
     //const ORDER = [ 'proveedor.alias', 'proveedor.nombre_completo', 'aux_tipo_proveedor.nombre_tipo_proveedor', 'aux_continente.nombre_continente, proveedor.anho_fundación'];
-    private const SELECT_FROM = 'SELECT proveedor.alias, proveedor.nombre_completo, aux_tipo_proveedor.nombre_tipo_proveedor, aux_continente.nombre_continente, proveedor.anho_fundacion, aux_continente.continente_avisar FROM proveedor LEFT JOIN aux_tipo_proveedor ON aux_tipo_proveedor.id_tipo_proveedor = proveedor.id_tipo_proveedor LEFT JOIN aux_continente ON proveedor.id_continente = aux_continente.id_continente';
+    private const SELECT_FROM = 'SELECT proveedor.alias, proveedor.nombre_completo, aux_tipo_proveedor.nombre_tipo_proveedor, aux_continente.nombre_continente, proveedor.anho_fundacion, aux_continente.continente_avisar, proveedor.website, proveedor.email, proveedor.telefono FROM proveedor LEFT JOIN aux_tipo_proveedor ON aux_tipo_proveedor.id_tipo_proveedor = proveedor.id_tipo_proveedor LEFT JOIN aux_continente ON proveedor.id_continente = aux_continente.id_continente';
     
     public function obtenerTodo(){
         $stmt = $this->pdo->query(self::SELECT_FROM);
